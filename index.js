@@ -37,7 +37,7 @@ let promise = new Promise(function (resolve, reject) {
 // во втором же коде  если сработает f1 значит все норм, если будет  f2 будет error , выдаст ошибку.  /// но в ответе решение по-другому
 // поэтому я решила проверить наглядно
 
-// 1 case
+//1 case
 const myPromise = new Promise((resolve, reject) => {
   // resolve("Everything is good");
   reject("Errror");
@@ -53,17 +53,32 @@ myPromise
 
 // 2 case
 const oneMorePromise = new Promise((resolve, reject) => {
-  // resolve("Everything is good");
+  //resolve("Everything is good");
   reject("Errror");
 });
 
 oneMorePromise.then(
-  (result) => {
-    console.log(result);
-  },
   (error) => {
     console.log(error);
+  },
+  (result) => {
+    console.log(result);
   }
 );
 
 // они одинаковы, Карл , почему в решении написано что они не эквивалентны
+
+///
+
+// let promise2 = new Promise((resolve, reject) => {
+//   resolve("Success!");
+// });
+
+// promise2.then(
+//   () => {
+//     throw new Error("Errror");
+//   },
+//   () => {
+//     console.log("ok");
+//   }
+// );
